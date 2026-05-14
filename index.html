@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vellure — Colección Lujo x3</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+
+<script>
+  (function() {
+    const params = new URLSearchParams(window.location.search);
+    const cart = params.get("cart");
+    if (cart) {
+      window.location.replace("https://fj0qfp-s1.myshopify.com/cart/" + cart);
+    }
+  })();
+</script>
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black:   #0C0B09;
+  --gold:    #B89A5A;
+  --gold-lt: #D4B97A;
+  --cream:   #F2EDE4;
+  --warm:    #E8DFD0;
+  --muted:   #9A9180;
+  --white:   #FDFAF5;
+  --border:  rgba(184,154,90,0.2);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Jost', sans-serif;
+  background: var(--black);
+  color: var(--cream);
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1.6rem 5rem;
+  background: rgba(12,11,9,0.75);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  transition: padding 0.35s;
+}
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 300;
+  letter-spacing: 0.35em;
+  color: var(--cream);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a {
+  font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--muted); text-decoration: none; transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--gold); }
+
+.nav-cta {
+  border: 1px solid var(--gold);
+  color: var(--gold) !important;
+  padding: 0.5rem 1.4rem;
+  border-radius: 0;
+  transition: background 0.25s !important, color 0.25s !important;
+}
+.nav-cta:hover { background: var(--gold) !important; color: var(--black) !important; }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 88px;
+  position: relative;
+}
+
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 70% 50%, rgba(184,154,90,0.06) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.hero-left {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 5rem 4rem 5rem 8rem;
+  position: relative;
+}
+
+.hero-eyebrow {
+  font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 2rem;
+  display: flex; align-items: center; gap: 1rem;
+}
+.hero-eyebrow::before {
+  content: ''; display: block; width: 3rem; height: 1px; background: var(--gold);
+}
+
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3.2rem, 5.5vw, 6rem);
+  font-weight: 300;
+  line-height: 1.02;
+  margin-bottom: 2rem;
+  color: var(--cream);
+}
+.hero-title em { font-style: italic; color: var(--gold-lt); }
+
+.hero-sub {
+  font-size: 0.92rem; color: var(--muted); line-height: 1.9;
+  max-width: 400px; margin-bottom: 1.5rem; font-weight: 300;
+}
+
+.hero-size-badge {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  border: 1px solid var(--border);
+  padding: 0.5rem 1rem;
+  font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 2.5rem;
+}
+
+.price-block { margin-bottom: 2.5rem; }
+.price-compare {
+  font-size: 0.88rem; color: var(--muted);
+  text-decoration: line-through; letter-spacing: 0.05em;
+  margin-bottom: 0.3rem;
+}
+.price-main {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem; font-weight: 300; color: var(--cream);
+  letter-spacing: 0.02em; line-height: 1;
+}
+.price-main span { font-size: 1.1rem; vertical-align: super; margin-right: 2px; }
+.price-off {
+  display: inline-block;
+  background: var(--gold); color: var(--black);
+  font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase;
+  padding: 0.25rem 0.7rem; margin-left: 0.8rem; font-weight: 500;
+  vertical-align: middle;
+}
+
+.hero-actions { display: flex; gap: 1.2rem; align-items: center; flex-wrap: wrap; }
+
+.btn-primary {
+  background: var(--gold); color: var(--black);
+  padding: 1.1rem 2.8rem; border: none; cursor: pointer;
+  font-family: 'Jost', sans-serif; font-size: 0.75rem;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  text-decoration: none; display: inline-block;
+  transition: background 0.25s, transform 0.2s;
+  font-weight: 500;
+}
+.btn-primary:hover { background: var(--gold-lt); transform: translateY(-2px); }
+
+.btn-ghost {
+  color: var(--cream); font-size: 0.75rem; letter-spacing: 0.15em;
+  text-transform: uppercase; text-decoration: none;
+  display: flex; align-items: center; gap: 0.6rem;
+  border-bottom: 1px solid rgba(242,237,228,0.3); padding-bottom: 2px;
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-ghost:hover { color: var(--gold); border-color: var(--gold); }
+
+/* HERO RIGHT — image mosaic */
+.hero-right {
+  position: relative; overflow: hidden;
+  display: grid;
+  grid-template-rows: 60% 40%;
+}
+
+.hero-main-img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.8s ease;
+}
+.hero-right:hover .hero-main-img { transform: scale(1.03); }
+
+.hero-thumbs {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 3px; background: var(--black);
+}
+.hero-thumbs img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.5s ease; cursor: pointer;
+}
+.hero-thumbs img:hover { transform: scale(1.05); }
+
+.hero-stamp {
+  position: absolute; top: 2rem; right: 2rem;
+  width: 90px; height: 90px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  background: rgba(12,11,9,0.85);
+  backdrop-filter: blur(8px);
+  text-align: center;
+  animation: spin-stamp 20s linear infinite;
+}
+.hero-stamp-inner {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem; font-weight: 300; color: var(--gold); line-height: 1;
+}
+.hero-stamp-label {
+  font-size: 0.52rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--muted); margin-top: 2px;
+}
+@keyframes spin-stamp {
+  from { transform: rotate(0deg); } to { transform: rotate(360deg); }
+}
+
+/* ── MARQUEE ── */
+.marquee-wrap {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 1.1rem 0; overflow: hidden;
+  background: rgba(184,154,90,0.04);
+}
+.marquee-inner {
+  display: flex; gap: 3rem;
+  animation: marquee 28s linear infinite;
+  white-space: nowrap;
+}
+.marquee-inner span {
+  font-size: 0.68rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold);
+}
+.marquee-inner .sep { opacity: 0.3; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ── WHAT'S INSIDE ── */
+.inside-section {
+  padding: 8rem 8rem;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 6rem; align-items: center;
+}
+
+.inside-img {
+  position: relative;
+}
+.inside-img img {
+  width: 100%; aspect-ratio: 4/5; object-fit: cover;
+}
+.inside-img::before {
+  content: '';
+  position: absolute; top: -1.5rem; left: -1.5rem; right: 1.5rem; bottom: 1.5rem;
+  border: 1px solid var(--border);
+  pointer-events: none; z-index: -1;
+}
+
+.inside-label {
+  font-size: 0.68rem; letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1.5rem;
+  display: flex; align-items: center; gap: 0.8rem;
+}
+.inside-label::before { content: ''; width: 2rem; height: 1px; background: var(--gold); }
+
+.inside-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 3.5vw, 3.8rem);
+  font-weight: 300; line-height: 1.1; margin-bottom: 1.5rem;
+}
+.inside-title em { font-style: italic; color: var(--gold-lt); }
+
+.inside-desc {
+  font-size: 0.9rem; color: var(--muted); line-height: 1.9;
+  font-weight: 300; margin-bottom: 3rem;
+}
+
+.pieces-list { list-style: none; margin-bottom: 3rem; }
+.pieces-list li {
+  display: flex; gap: 1.5rem; align-items: flex-start;
+  padding: 1.4rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.pieces-list li:first-child { border-top: 1px solid var(--border); }
+
+.piece-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem; font-weight: 300; color: var(--gold);
+  line-height: 1; min-width: 2rem;
+}
+.piece-info strong {
+  display: block; font-size: 0.82rem; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--cream); font-weight: 400;
+  margin-bottom: 0.25rem;
+}
+.piece-info span { font-size: 0.8rem; color: var(--muted); font-weight: 300; }
+
+/* ── FEATURE STRIP ── */
+.feature-strip {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.feature-item {
+  padding: 3rem 2.5rem;
+  border-right: 1px solid var(--border);
+  text-align: center;
+}
+.feature-item:last-child { border-right: none; }
+.feature-icon { font-size: 1.4rem; color: var(--gold); margin-bottom: 1rem; }
+.feature-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem; font-weight: 400; color: var(--cream);
+  margin-bottom: 0.4rem;
+}
+.feature-desc { font-size: 0.78rem; color: var(--muted); line-height: 1.7; font-weight: 300; }
+
+/* ── OFFER SECTION ── */
+.offer-section {
+  padding: 8rem;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 6rem; align-items: center;
+  background: rgba(184,154,90,0.03);
+}
+
+.offer-img img {
+  width: 100%; aspect-ratio: 3/4; object-fit: cover;
+}
+
+.offer-content { }
+
+.offer-label {
+  font-size: 0.68rem; letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1.5rem;
+  display: flex; align-items: center; gap: 0.8rem;
+}
+.offer-label::before { content: ''; width: 2rem; height: 1px; background: var(--gold); }
+
+.offer-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 3.5vw, 3.8rem);
+  font-weight: 300; line-height: 1.1; margin-bottom: 1.5rem;
+}
+.offer-title em { font-style: italic; color: var(--gold-lt); }
+
+.offer-desc {
+  font-size: 0.9rem; color: var(--muted); line-height: 1.9;
+  font-weight: 300; margin-bottom: 2.5rem;
+}
+
+.offer-box {
+  border: 1px solid var(--border);
+  padding: 2rem;
+  margin-bottom: 2.5rem;
+  background: rgba(184,154,90,0.04);
+}
+.offer-box-title {
+  font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1.2rem;
+}
+.offer-price-row {
+  display: flex; align-items: baseline; gap: 1rem; margin-bottom: 0.5rem;
+}
+.offer-price-main {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.5rem; font-weight: 300; color: var(--cream); line-height: 1;
+}
+.offer-price-main small { font-size: 1.2rem; vertical-align: super; }
+.offer-price-old {
+  font-size: 1rem; color: var(--muted); text-decoration: line-through;
+}
+.offer-savings {
+  display: inline-block;
+  background: var(--gold); color: var(--black);
+  font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+  padding: 0.3rem 0.8rem; font-weight: 500; margin-top: 0.8rem;
+}
+.offer-size-note {
+  font-size: 0.75rem; color: var(--muted); margin-top: 0.8rem;
+  font-weight: 300; line-height: 1.6;
+}
+
+/* ── DESCRIPTION ── */
+.desc-section {
+  padding: 8rem;
+  max-width: 800px; margin: 0 auto;
+  text-align: center;
+}
+.desc-section .section-label {
+  font-size: 0.68rem; letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1.5rem;
+}
+.desc-section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-weight: 300; margin-bottom: 2rem;
+}
+.desc-section h2 em { font-style: italic; color: var(--gold-lt); }
+.desc-section p {
+  font-size: 0.92rem; color: var(--muted); line-height: 1.95;
+  font-weight: 300; margin-bottom: 1.5rem;
+}
+
+/* ── TESTIMONIALS ── */
+.testimonials {
+  padding: 7rem 8rem;
+  border-top: 1px solid var(--border);
+}
+.section-header { margin-bottom: 4rem; text-align: center; }
+.section-label {
+  font-size: 0.68rem; letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1rem;
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 3vw, 3rem); font-weight: 300;
+}
+.section-title em { font-style: italic; color: var(--gold-lt); }
+
+.testimonial-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+}
+.testimonial-card {
+  border: 1px solid var(--border);
+  padding: 2.5rem;
+  background: rgba(184,154,90,0.03);
+  transition: border-color 0.3s;
+}
+.testimonial-card:hover { border-color: var(--gold); }
+.stars { color: var(--gold); font-size: 0.85rem; letter-spacing: 0.15em; margin-bottom: 1.2rem; }
+.testimonial-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem; line-height: 1.75; color: var(--cream);
+  font-style: italic; margin-bottom: 1.5rem;
+}
+.testimonial-author { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.testimonial-author strong { display: block; color: var(--cream); font-weight: 400; margin-bottom: 2px; letter-spacing: 0; text-transform: none; font-size: 0.88rem; }
+
+/* ── FINAL CTA ── */
+.final-cta {
+  padding: 8rem;
+  text-align: center;
+  position: relative;
+  border-top: 1px solid var(--border);
+  overflow: hidden;
+}
+.final-cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 50%, rgba(184,154,90,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.final-cta .eyebrow {
+  font-size: 0.68rem; letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 2rem;
+}
+.final-cta h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  font-weight: 300; line-height: 1.05; margin-bottom: 1.5rem;
+}
+.final-cta h2 em { font-style: italic; color: var(--gold-lt); }
+.final-cta p {
+  font-size: 0.92rem; color: var(--muted); max-width: 480px;
+  margin: 0 auto 3rem; line-height: 1.9; font-weight: 300;
+}
+.final-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem; font-weight: 300; color: var(--gold);
+  margin-bottom: 2.5rem;
+}
+.final-price s { color: var(--muted); font-size: 1.2rem; margin-right: 0.5rem; }
+
+/* ── FOOTER ── */
+footer {
+  background: rgba(184,154,90,0.04);
+  border-top: 1px solid var(--border);
+  padding: 4rem 8rem 2rem;
+}
+.footer-grid {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 4rem; padding-bottom: 3rem;
+  border-bottom: 1px solid var(--border); margin-bottom: 2rem;
+}
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem; font-weight: 300; letter-spacing: 0.35em;
+  color: var(--cream); text-decoration: none; display: block; margin-bottom: 1rem;
+}
+.footer-tagline { font-size: 0.82rem; color: var(--muted); font-weight: 300; line-height: 1.7; max-width: 240px; margin-bottom: 1.5rem; }
+.footer-col h4 { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
+.footer-links { list-style: none; }
+.footer-links li { margin-bottom: 0.7rem; }
+.footer-links a { color: var(--muted); text-decoration: none; font-size: 0.82rem; font-weight: 300; transition: color 0.2s; }
+.footer-links a:hover { color: var(--cream); }
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 0.72rem; color: rgba(154,145,128,0.5);
+}
+
+/* ── TRUST BAR ── */
+.trust-bar {
+  display: flex; justify-content: center; gap: 3rem;
+  padding: 1.5rem 0; border-top: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+.trust-item {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);
+}
+.trust-item svg { width: 16px; height: 16px; color: var(--gold); flex-shrink: 0; }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp 0.8s ease forwards; }
+.delay-1 { animation-delay: 0.15s; opacity: 0; }
+.delay-2 { animation-delay: 0.30s; opacity: 0; }
+.delay-3 { animation-delay: 0.45s; opacity: 0; }
+.delay-4 { animation-delay: 0.60s; opacity: 0; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1100px) {
+  nav { padding: 1.2rem 3rem; }
+  .hero-left { padding: 4rem 3rem 4rem 4rem; }
+  .inside-section, .offer-section { padding: 5rem 4rem; gap: 3rem; }
+  .testimonials { padding: 5rem 4rem; }
+  .final-cta { padding: 5rem 4rem; }
+  footer { padding: 3rem 4rem 2rem; }
+  .desc-section { padding: 5rem 4rem; }
+}
+
+@media (max-width: 768px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-left { padding: 3rem 1.5rem; }
+  .hero-right { height: 420px; }
+  .inside-section, .offer-section { grid-template-columns: 1fr; padding: 4rem 1.5rem; gap: 3rem; }
+  .feature-strip { grid-template-columns: 1fr 1fr; }
+  .feature-item { border-bottom: 1px solid var(--border); }
+  .testimonial-grid { grid-template-columns: 1fr; }
+  .testimonials, .final-cta, .desc-section { padding: 4rem 1.5rem; }
+  footer { padding: 3rem 1.5rem 2rem; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+  .trust-bar { gap: 1.5rem; padding: 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">VELLURE</a>
+  <ul class="nav-links">
+    <li><a href="#coleccion">La Colección</a></li>
+    <li><a href="#descripcion">Historia</a></li>
+    <li><a href="#testimonios">Reseñas</a></li>
+    <li><a href="#comprar" class="nav-cta">Comprar Ahora</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow fade-up">Edición Limitada · Talla Única</p>
+    <h1 class="hero-title fade-up delay-1">
+      Colección<br><em>Lujo x3</em>
+    </h1>
+    <p class="hero-sub fade-up delay-2">
+      Tres piezas. Una sola intención. El conjunto que habla antes que tú.
+    </p>
+
+    <div class="hero-size-badge fade-up delay-2">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Talla Única · Diseñado para adaptarse
+    </div>
+
+    <div class="price-block fade-up delay-3">
+      <p class="price-compare">$89.000 CLP</p>
+      <div>
+        <span class="price-main"><span>$</span>59.000</span>
+        <span class="price-off">−34% OFF</span>
+      </div>
+    </div>
+
+    <div class="hero-actions fade-up delay-4">
+      <a href="https://fj0qfp-s1.myshopify.com/cart/63607872029041:1" class="btn-primary">Quiero el Conjunto</a>
+      <a href="#coleccion" class="btn-ghost">Ver más →</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <img class="hero-main-img"
+      src="https://cdn.shopify.com/s/files/1/1010/7702/5137/files/ChatGPT_Image_14_de_mai._de_2026_02_47_52.png?v=1778737711"
+      alt="Colección Lujo x3 — caja abierta">
+    <div class="hero-thumbs">
+      <img src="https://cdn.shopify.com/s/files/1/1010/7702/5137/files/ChatGPT_Image_13_de_mai._de_2026_01_31_27.png?v=1778737521" alt="Conjunto completo">
+      <img src="https://cdn.shopify.com/s/files/1/1010/7702/5137/files/1_fe87e733-11ed-4cbe-8133-2184bae72220.png?v=1778736519" alt="Detalle del conjunto">
+    </div>
+    <div class="hero-stamp">
+      <div class="hero-stamp-inner">x3</div>
+      <div class="hero-stamp-label">piezas</div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-inner">
+    <span>Colección Lujo x3</span><span class="sep">✦</span>
+    <span>Talla Única</span><span class="sep">✦</span>
+    <span>Lino Premium</span><span class="sep">✦</span>
+    <span>Envío Gratis</span><span class="sep">✦</span>
+    <span>Elegancia Discreta</span><span class="sep">✦</span>
+    <span>Vellure</span><span class="sep">✦</span>
+    <span>Colección Lujo x3</span><span class="sep">✦</span>
+    <span>Talla Única</span><span class="sep">✦</span>
+    <span>Lino Premium</span><span class="sep">✦</span>
+    <span>Envío Gratis</span><span class="sep">✦</span>
+    <span>Elegancia Discreta</span><span class="sep">✦</span>
+    <span>Vellure</span><span class="sep">✦</span>
+  </div>
+</div>
+
+<!-- WHAT'S INSIDE -->
+<section class="inside-section" id="coleccion">
+  <div class="inside-img">
+    <img src="https://cdn.shopify.com/s/files/1/1010/7702/5137/files/4_92deb691-9b13-491e-961e-2c37f840df92.png?v=1778736520"
+      alt="Las piezas del conjunto">
+  </div>
+  <div>
+    <p class="inside-label">Lo que incluye</p>
+    <h2 class="inside-title">Tres piezas.<br><em>Una sola visión.</em></h2>
+    <p class="inside-desc">
+      Cada pieza fue seleccionada para funcionar en conjunto — no como tres prendas separadas, sino como una sola declaración de estilo. El hombre que viste Vellure no necesita explicaciones.
+    </p>
+    <ul class="pieces-list">
+      <li>
+        <span class="piece-num">01</span>
+        <div class="piece-info">
+          <strong>Camisa de Lino Stone-Washed</strong>
+          <span>Manga larga · Talla Única (equiv. M/L) · 100% Lino Stone-Washed</span>
+        </div>
+      </li>
+      <li>
+        <span class="piece-num">02</span>
+        <div class="piece-info">
+          <strong>Pantalón de Lino Premium</strong>
+          <span>Corte relajado · Talla Única (cintura 32–38) · 100% Lino Premium</span>
+        </div>
+      </li>
+      <li>
+        <span class="piece-num">03</span>
+        <div class="piece-info">
+          <strong>Sandalia Heritage</strong>
+          <span>Talla Única (38–43) · Cuero sintético · Suela de goma</span>
+        </div>
+      </li>
+    </ul>
+    <a href="https://fj0qfp-s1.myshopify.com/cart/63607872029041:1" class="btn-primary">Obtener el Conjunto</a>
+  </div>
+</section>
+
+<!-- FEATURE STRIP -->
+<div class="feature-strip">
+  <div class="feature-item">
+    <div class="feature-icon">✦</div>
+    <p class="feature-name">Lino Premium</p>
+    <p class="feature-desc">Transpirable, suave y con una caída natural que mejora con el tiempo.</p>
+  </div>
+  <div class="feature-item">
+    <div class="feature-icon">◎</div>
+    <p class="feature-name">Envío Gratis</p>
+    <p class="feature-desc">Despacho sin costo a todo Chile. Entrega en 3 a 7 días hábiles.</p>
+  </div>
+  <div class="feature-item">
+    <div class="feature-icon">⟳</div>
+    <p class="feature-name">Compra Segura</p>
+    <p class="feature-desc">Pago 100% protegido. Tu información nunca se comparte.</p>
+  </div>
+  <div class="feature-item">
+    <div class="feature-icon">◈</div>
+    <p class="feature-name">Edición Limitada</p>
+    <p class="feature-desc">Stock reducido. Una vez agotado, no habrá reposición.</p>
+  </div>
+</div>
+
+<!-- OFFER / BUY -->
+<section class="offer-section" id="comprar">
+  <div class="offer-img">
+    <img src="https://cdn.shopify.com/s/files/1/1010/7702/5137/files/ChatGPT_Image_13_de_mai._de_2026_01_31_27.png?v=1778737521"
+      alt="Vellure Colección Lujo x3">
+  </div>
+  <div class="offer-content">
+    <p class="offer-label">Oferta exclusiva</p>
+    <h2 class="offer-title">El precio<br>más bajo <em>garantizado.</em></h2>
+    <p class="offer-desc">
+      Esta oferta es por tiempo limitado. Una vez que el stock se agote, el precio vuelve a su valor original. No hay segunda oportunidad.
+    </p>
+
+    <div class="offer-box">
+      <p class="offer-box-title">Colección Lujo x3 — Precio de lanzamiento</p>
+      <div class="offer-price-row">
+        <span class="offer-price-main"><small>$</small>59.000</span>
+        <span class="offer-price-old">$89.000</span>
+      </div>
+      <span class="offer-savings">Ahorras $30.000 CLP · 34% OFF</span>
+      <p class="offer-size-note">
+        ✓ Talla Única · Camisa M/L · Pantalón cintura 32–38 · Sandalia 38–43<br>
+        ✓ Incluye: Camisa + Pantalón + Sandalia · Presentación en caja exclusiva
+      </p>
+    </div>
+
+    <a href="https://fj0qfp-s1.myshopify.com/cart/63607872029041:1" class="btn-primary" style="width:100%;text-align:center;display:block;padding:1.3rem;">
+      Comprar Ahora — $59.000 CLP
+    </a>
+
+    <div class="trust-bar" style="border:none;padding-top:1.5rem;">
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Pago Seguro
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Envío Gratis
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        Stock Limitado
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DESCRIPTION -->
+<section class="desc-section" id="descripcion">
+  <p class="section-label">Nuestra historia</p>
+  <h2>Viste lo que <em>eres.</em></h2>
+  <p>
+    Creamos Vellure porque sentimos que algo faltaba en la moda actual — esa confianza discreta, ese estilo atemporal, ese encanto natural del hombre que no necesita gritar para ser visto.
+  </p>
+  <p>
+    Crecimos admirando a personas que no necesitaban presumir. Su ropa simple y elegante hablaba por ellos. Esa sensación nos inspiró a traer de vuelta esa elegancia contenida — accesible, real, y verdadera.
+  </p>
+  <p>
+    La <strong style="color:var(--cream);font-weight:400;">Colección Lujo x3</strong> no es solo ropa. Es una declaración. Tres piezas pensadas para funcionar juntas, para el hombre que entiende que la verdadera elegancia no grita — <em>susurra.</em>
+  </p>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonios">
+  <div class="section-header">
+    <p class="section-label">Lo que dicen</p>
+    <h2 class="section-title">Llevado &amp; <em>Amado</em></h2>
+  </div>
+  <div class="testimonial-grid">
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"Llegó en una caja increíble. La calidad de las telas superó todas mis expectativas. Lo usé el mismo día que llegó."</p>
+      <div class="testimonial-author"><strong>Matías R.</strong>Comprador verificado · Santiago</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"Pedí el conjunto sin mucha expectativa y quedé completamente sorprendido. El lino es suave, fresco y la sandalia es cómoda. Vale cada peso."</p>
+      <div class="testimonial-author"><strong>Sebastián L.</strong>Comprador verificado · Viña del Mar</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"El precio de lanzamiento es un regalo. Llevo 3 semanas usando el conjunto y ya me preguntaron dónde lo compré más de 10 veces."</p>
+      <div class="testimonial-author"><strong>Felipe A.</strong>Comprador verificado · Concepción</div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <p class="eyebrow">Oferta por tiempo limitado</p>
+  <h2>Tu estilo.<br><em>Tu momento.</em></h2>
+  <p>El stock es limitado y no habrá reposición a este precio. Asegura el tuyo antes de que se agote.</p>
+  <div class="final-price">
+    <s>$89.000</s> $59.000 CLP
+  </div>
+  <a href="https://fj0qfp-s1.myshopify.com/cart/63607872029041:1" class="btn-primary">
+    Comprar Ahora — Antes que se Agote
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <a href="#" class="footer-logo">VELLURE</a>
+      <p class="footer-tagline">Elegancia discreta para el hombre que no necesita explicaciones.</p>
+      <p style="font-size:0.75rem;color:var(--muted);font-weight:300;line-height:1.7;margin-top:1rem;">
+        Lystige Comércio Varejista Ltda.<br>
+        CNPJ: 49.142.229/0001-50<br>
+        R. Eng. Alpheu José Ribas Sampaio, 326, Sala 217<br>
+        Bauru – SP, Brasil · CEP 17012-631
+      </p>
+      <p style="font-size:0.75rem;color:var(--muted);font-weight:300;margin-top:0.6rem;">
+        ✉ <a href="mailto:lystige1@gmail.com" style="color:var(--muted);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--muted)'">lystige1@gmail.com</a>
+      </p>
+    </div>
+    <div class="footer-col">
+      <h4>Tienda</h4>
+      <ul class="footer-links">
+        <li><a href="#coleccion">Colección Lujo x3</a></li>
+        <li><a href="#comprar">Comprar</a></li>
+        <li><a href="#testimonios">Reseñas</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Ayuda</h4>
+      <ul class="footer-links">
+        <li><a href="#">Guía de Tallas</a></li>
+        <li><a href="#">Envíos</a></li>
+        <li><a href="#">Devoluciones</a></li>
+        <li><a href="mailto:lystige1@gmail.com">Contacto</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul class="footer-links">
+        <li><a href="#">Política de Privacidad</a></li>
+        <li><a href="#">Términos de Servicio</a></li>
+        <li><a href="#">Política de Reembolso</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Vellure — Lystige Comércio Varejista Ltda. Todos los derechos reservados.</span>
+    <span>Viste lo que eres.</span>
+  </div>
+</footer>
+
+<script>
+  // Nav shrink on scroll
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 60) {
+      nav.style.padding = window.innerWidth > 768 ? '0.9rem 5rem' : '0.7rem 1.5rem';
+    } else {
+      nav.style.padding = window.innerWidth > 768 ? '1.6rem 5rem' : '1rem 1.5rem';
+    }
+  });
+
+  // Scroll-triggered fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        e.target.style.animation = `fadeUp 0.7s ease ${i * 0.1}s forwards`;
+        e.target.style.opacity = '0';
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.testimonial-card, .feature-item, .pieces-list li').forEach(el => {
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
