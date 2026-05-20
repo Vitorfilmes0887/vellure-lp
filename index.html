@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Colección Lujo x3</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+<script>
+  (function() {
+    const params = new URLSearchParams(window.location.search);
+    const cart = params.get("cart");
+    if (cart) {
+      window.location.replace("https://fj0qfp-s1.myshopify.com/cart/" + cart + "?utm_source=landing_page&utm_medium=redirect&utm_campaign=leparfum");
+    }
+  })();
+</script>
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --sand:    #F5F0E8;
+  --sand-dk: #EAE2D4;
+  --clay:    #C8A882;
+  --clay-dk: #A8845A;
+  --terra:   #7A4F35;
+  --brown:   #3D2314;
+  --leather: #5C3A1E;
+  --ink:     #1E150D;
+  --muted:   #8A7260;
+  --warm-wh: #FAF7F2;
+  --border:  rgba(168,132,90,0.18);
+  --border2: rgba(92,58,30,0.12);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Nunito Sans', sans-serif;
+  background: var(--warm-wh);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1.4rem 5rem;
+  background: rgba(250,247,242,0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  transition: padding 0.35s;
+}
+
+.nav-logo {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1.45rem;
+  font-weight: 400;
+  letter-spacing: 0.28em;
+  color: var(--brown);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+.nav-links a {
+  font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--muted); text-decoration: none; transition: color 0.2s;
+  font-weight: 600;
+}
+.nav-links a:hover { color: var(--clay-dk); }
+
+.nav-cta {
+  border: 1.5px solid var(--clay-dk) !important;
+  color: var(--clay-dk) !important;
+  padding: 0.5rem 1.4rem;
+  border-radius: 2px;
+  transition: background 0.25s !important, color 0.25s !important;
+}
+.nav-cta:hover { background: var(--clay-dk) !important; color: var(--warm-wh) !important; }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 80px;
+  background: var(--sand);
+}
+
+.hero-left {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 5rem 3.5rem 5rem 7rem;
+}
+
+.hero-eyebrow {
+  font-size: 0.66rem; letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--clay-dk); margin-bottom: 1.8rem;
+  display: flex; align-items: center; gap: 0.9rem;
+  font-weight: 600;
+}
+.hero-eyebrow::before {
+  content: ''; display: block; width: 2.5rem; height: 1px; background: var(--clay-dk);
+}
+
+.hero-title {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(2.8rem, 4.5vw, 5rem);
+  font-weight: 400;
+  line-height: 1.1;
+  margin-bottom: 1.8rem;
+  color: var(--brown);
+  letter-spacing: -0.01em;
+}
+.hero-title em { font-style: italic; color: var(--clay-dk); }
+
+.hero-sub {
+  font-size: 0.93rem; color: var(--muted); line-height: 1.85;
+  max-width: 380px; margin-bottom: 1.5rem; font-weight: 300;
+}
+
+.hero-craft-note {
+  display: flex; align-items: center; gap: 0.7rem;
+  font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--clay-dk); margin-bottom: 2.5rem; font-weight: 600;
+}
+.craft-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--clay-dk); display: inline-block;
+}
+
+.price-block { margin-bottom: 2.5rem; }
+.price-compare {
+  font-size: 0.85rem; color: var(--muted);
+  text-decoration: line-through; letter-spacing: 0.04em;
+  margin-bottom: 0.4rem;
+}
+.price-main {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 2.8rem; font-weight: 700; color: var(--brown);
+  letter-spacing: -0.02em; line-height: 1;
+}
+.price-main small { font-size: 1.1rem; font-weight: 400; vertical-align: super; margin-right: 3px; }
+.price-off {
+  display: inline-block;
+  background: var(--terra); color: var(--warm-wh);
+  font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 0.22rem 0.6rem; margin-left: 0.7rem; font-weight: 600;
+  border-radius: 2px; vertical-align: middle;
+}
+
+.hero-actions { display: flex; gap: 1.2rem; align-items: center; flex-wrap: wrap; }
+
+.btn-primary {
+  background: var(--clay-dk); color: var(--warm-wh);
+  padding: 1rem 2.5rem; border: none; cursor: pointer;
+  font-family: 'Nunito Sans', sans-serif; font-size: 0.73rem;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  text-decoration: none; display: inline-block;
+  transition: background 0.25s, transform 0.2s;
+  font-weight: 600; border-radius: 2px;
+}
+.btn-primary:hover { background: var(--terra); transform: translateY(-2px); }
+
+.btn-ghost {
+  color: var(--brown); font-size: 0.73rem; letter-spacing: 0.14em;
+  text-transform: uppercase; text-decoration: none;
+  display: flex; align-items: center; gap: 0.5rem;
+  border-bottom: 1.5px solid rgba(61,35,20,0.3); padding-bottom: 2px;
+  transition: border-color 0.2s, color 0.2s; font-weight: 600;
+}
+.btn-ghost:hover { color: var(--clay-dk); border-color: var(--clay-dk); }
+
+/* HERO RIGHT */
+.hero-right {
+  position: relative; overflow: hidden;
+  background: var(--sand-dk);
+}
+
+.hero-img-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  height: 100%;
+  gap: 3px;
+  background: var(--sand-dk);
+}
+
+.hero-img-grid img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.7s ease;
+  display: block;
+}
+.hero-img-grid img:hover { transform: scale(1.04); }
+.hero-img-grid img:first-child {
+  grid-column: 1 / 3;
+  grid-row: 1;
+}
+
+.hero-badge {
+  position: absolute; bottom: 2rem; right: 2rem;
+  background: var(--warm-wh);
+  border: 1.5px solid var(--clay);
+  padding: 1.1rem 1.4rem;
+  text-align: center;
+  border-radius: 2px;
+}
+.hero-badge-num {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 2rem; font-weight: 700; color: var(--brown); line-height: 1;
+}
+.hero-badge-label {
+  font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--muted); margin-top: 3px; font-weight: 600;
+}
+
+/* ── BREADCRUMB STRIP ── */
+.strip {
+  display: flex; align-items: center; justify-content: center;
+  gap: 2.5rem; padding: 1.1rem 5rem;
+  border-bottom: 1px solid var(--border2);
+  background: var(--warm-wh);
+  overflow: hidden;
+}
+.strip-item {
+  display: flex; align-items: center; gap: 0.55rem;
+  font-size: 0.67rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--muted); white-space: nowrap; font-weight: 600;
+}
+.strip-item svg { color: var(--clay); flex-shrink: 0; }
+.strip-sep { color: var(--clay); opacity: 0.4; font-size: 0.7rem; }
+
+/* ── PRODUCT SECTION ── */
+.product-section {
+  padding: 7rem 7rem;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 7rem; align-items: start;
+  background: var(--warm-wh);
+}
+
+.product-gallery {
+  position: relative;
+}
+.product-main-img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  display: block;
+  border-radius: 2px;
+}
+.product-thumbs {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 8px; margin-top: 8px;
+}
+.product-thumbs img {
+  width: 100%; aspect-ratio: 1/1; object-fit: cover;
+  cursor: pointer; border-radius: 2px;
+  border: 2px solid transparent;
+  transition: border-color 0.2s, transform 0.3s;
+}
+.product-thumbs img:hover { border-color: var(--clay); transform: scale(1.02); }
+.product-thumbs img.active { border-color: var(--clay-dk); }
+
+.product-info { position: sticky; top: 6rem; }
+
+.product-cat {
+  font-size: 0.66rem; letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--clay-dk); margin-bottom: 1.2rem; font-weight: 600;
+  display: flex; align-items: center; gap: 0.7rem;
+}
+.product-cat::before { content: ''; width: 2rem; height: 1px; background: var(--clay-dk); }
+
+.product-name {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(2rem, 3vw, 3.2rem);
+  font-weight: 400; line-height: 1.1;
+  color: var(--brown); margin-bottom: 0.6rem;
+}
+.product-name em { font-style: italic; color: var(--clay-dk); }
+
+.product-subtitle {
+  font-size: 0.85rem; color: var(--muted); margin-bottom: 2rem;
+  font-weight: 300; line-height: 1.7;
+}
+
+.product-materials {
+  display: flex; gap: 1.5rem; margin-bottom: 2rem; flex-wrap: wrap;
+}
+.mat-tag {
+  font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--terra); border: 1px solid rgba(122,79,53,0.3);
+  padding: 0.3rem 0.8rem; border-radius: 2px; font-weight: 600;
+  background: rgba(122,79,53,0.05);
+}
+
+.price-area { margin-bottom: 2rem; }
+.price-row {
+  display: flex; align-items: baseline; gap: 1rem; margin-bottom: 0.3rem;
+}
+.price-big {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 2.6rem; font-weight: 700; color: var(--brown); line-height: 1;
+}
+.price-big small { font-size: 1rem; font-weight: 400; vertical-align: super; }
+.price-old { font-size: 1rem; color: var(--muted); text-decoration: line-through; }
+.price-save {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  background: rgba(122,79,53,0.1); color: var(--terra);
+  font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 0.3rem 0.8rem; border-radius: 2px; font-weight: 600;
+}
+
+.divider { height: 1px; background: var(--border2); margin: 1.8rem 0; }
+
+.pieces-grid { margin-bottom: 2rem; }
+.piece-item {
+  display: flex; align-items: flex-start; gap: 1.2rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--border2);
+}
+.piece-item:first-child { border-top: 1px solid var(--border2); }
+.piece-num {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1.2rem; font-weight: 400; color: var(--clay-dk);
+  line-height: 1; min-width: 1.8rem; padding-top: 2px;
+}
+.piece-text strong {
+  display: block; font-size: 0.8rem; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--brown); font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+.piece-text span { font-size: 0.78rem; color: var(--muted); font-weight: 300; }
+
+.btn-buy {
+  display: block; width: 100%; text-align: center;
+  background: var(--clay-dk); color: var(--warm-wh);
+  padding: 1.15rem 2rem; border: none; cursor: pointer;
+  font-family: 'Nunito Sans', sans-serif; font-size: 0.75rem;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  text-decoration: none; font-weight: 600; border-radius: 2px;
+  transition: background 0.25s, transform 0.15s;
+  margin-bottom: 1rem;
+}
+.btn-buy:hover { background: var(--terra); transform: translateY(-2px); }
+
+.trust-row {
+  display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;
+}
+.trust-item {
+  display: flex; align-items: center; gap: 0.4rem;
+  font-size: 0.67rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); font-weight: 600;
+}
+.trust-item svg { color: var(--clay); flex-shrink: 0; }
+
+/* ── FEATURES ── */
+.features {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--border2);
+  border-bottom: 1px solid var(--border2);
+  background: var(--sand);
+}
+.feat-item {
+  padding: 3rem 2rem;
+  border-right: 1px solid var(--border2);
+  text-align: center;
+}
+.feat-item:last-child { border-right: none; }
+.feat-icon {
+  width: 40px; height: 40px; margin: 0 auto 1.2rem;
+  border: 1.5px solid var(--clay);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+}
+.feat-icon svg { color: var(--clay-dk); }
+.feat-name {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1rem; font-weight: 400; color: var(--brown); margin-bottom: 0.5rem;
+}
+.feat-desc { font-size: 0.78rem; color: var(--muted); line-height: 1.75; font-weight: 300; }
+
+/* ── STORY ── */
+.story {
+  padding: 8rem 7rem;
+  display: grid; grid-template-columns: 1fr 1.2fr;
+  gap: 8rem; align-items: center;
+  background: var(--sand-dk);
+}
+.story-img-wrap {
+  position: relative;
+}
+.story-img-wrap::after {
+  content: '';
+  position: absolute; bottom: -1.5rem; right: -1.5rem;
+  width: 60%; height: 60%;
+  border: 1.5px solid var(--clay);
+  pointer-events: none; z-index: 0;
+  border-radius: 2px;
+}
+.story-img {
+  width: 100%; aspect-ratio: 4/5; object-fit: cover;
+  position: relative; z-index: 1; border-radius: 2px;
+}
+.story-content { }
+.story-label {
+  font-size: 0.66rem; letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--clay-dk); margin-bottom: 1.5rem; font-weight: 600;
+  display: flex; align-items: center; gap: 0.8rem;
+}
+.story-label::before { content: ''; width: 2rem; height: 1px; background: var(--clay-dk); }
+.story-title {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-weight: 400; line-height: 1.15; margin-bottom: 1.8rem; color: var(--brown);
+}
+.story-title em { font-style: italic; color: var(--clay-dk); }
+.story-body {
+  font-size: 0.91rem; color: var(--muted); line-height: 2;
+  font-weight: 300; margin-bottom: 1.5rem;
+}
+.story-body strong { color: var(--brown); font-weight: 600; }
+
+.story-quote {
+  border-left: 2px solid var(--clay);
+  padding: 1.2rem 1.5rem;
+  margin: 2rem 0;
+  background: rgba(200,168,130,0.08);
+}
+.story-quote p {
+  font-family: 'Libre Baskerville', serif;
+  font-style: italic; font-size: 1.05rem;
+  color: var(--brown); line-height: 1.7;
+}
+
+/* ── OFFER BANNER ── */
+.offer-banner {
+  background: var(--brown);
+  padding: 5rem 7rem;
+  display: grid; grid-template-columns: 1fr auto;
+  gap: 4rem; align-items: center;
+}
+.offer-banner-text .label {
+  font-size: 0.66rem; letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--clay); margin-bottom: 1rem; font-weight: 600;
+}
+.offer-banner-text h2 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(2rem, 3.5vw, 3.5rem);
+  font-weight: 400; color: var(--sand); line-height: 1.1;
+  margin-bottom: 0.8rem;
+}
+.offer-banner-text h2 em { font-style: italic; color: var(--clay); }
+.offer-banner-text p {
+  font-size: 0.88rem; color: rgba(245,240,232,0.6); font-weight: 300; line-height: 1.8;
+}
+.offer-banner-price { text-align: center; flex-shrink: 0; }
+.ob-price {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 3.5rem; font-weight: 700; color: var(--sand); line-height: 1;
+  margin-bottom: 0.3rem;
+}
+.ob-price small { font-size: 1.2rem; font-weight: 400; vertical-align: super; }
+.ob-old {
+  font-size: 0.9rem; color: rgba(245,240,232,0.4);
+  text-decoration: line-through; margin-bottom: 1.2rem;
+}
+.btn-buy-light {
+  display: block; background: var(--clay); color: var(--brown);
+  padding: 1rem 2rem; border: none; cursor: pointer;
+  font-family: 'Nunito Sans', sans-serif; font-size: 0.72rem;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  text-decoration: none; font-weight: 700; border-radius: 2px;
+  transition: background 0.25s, transform 0.15s;
+}
+.btn-buy-light:hover { background: var(--clay-dk); color: var(--warm-wh); transform: translateY(-2px); }
+
+/* ── TESTIMONIALS ── */
+.testimonials {
+  padding: 7rem 7rem;
+  background: var(--warm-wh);
+}
+.section-header { margin-bottom: 4rem; }
+.section-label {
+  font-size: 0.66rem; letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--clay-dk); margin-bottom: 1rem; font-weight: 600;
+}
+.section-title {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(1.8rem, 2.8vw, 2.8rem); font-weight: 400; color: var(--brown);
+}
+.section-title em { font-style: italic; color: var(--clay-dk); }
+
+.testi-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+}
+.testi-card {
+  border: 1px solid var(--border2);
+  padding: 2.2rem;
+  background: var(--sand);
+  border-radius: 2px;
+  transition: border-color 0.3s, transform 0.2s;
+}
+.testi-card:hover { border-color: var(--clay); transform: translateY(-3px); }
+.stars { color: var(--clay-dk); font-size: 0.8rem; letter-spacing: 0.12em; margin-bottom: 1.2rem; }
+.testi-text {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 0.98rem; line-height: 1.8; color: var(--brown);
+  font-style: italic; margin-bottom: 1.5rem;
+}
+.testi-author { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.testi-author strong { display: block; color: var(--brown); font-weight: 600; font-size: 0.82rem; margin-bottom: 2px; letter-spacing: 0; text-transform: none; }
+
+/* ── FINAL CTA ── */
+.final-cta {
+  padding: 8rem 7rem;
+  text-align: center;
+  background: var(--sand);
+  border-top: 1px solid var(--border2);
+}
+.final-cta .eyebrow {
+  font-size: 0.66rem; letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--clay-dk); margin-bottom: 1.5rem; font-weight: 600;
+}
+.final-cta h2 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(2.2rem, 4vw, 4rem);
+  font-weight: 400; line-height: 1.1; margin-bottom: 1.2rem; color: var(--brown);
+}
+.final-cta h2 em { font-style: italic; color: var(--clay-dk); }
+.final-cta p {
+  font-size: 0.91rem; color: var(--muted); max-width: 440px;
+  margin: 0 auto 2rem; line-height: 1.9; font-weight: 300;
+}
+.final-price {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1.8rem; font-weight: 700; color: var(--terra);
+  margin-bottom: 2rem;
+}
+.final-price s { color: var(--muted); font-size: 1.2rem; margin-right: 0.5rem; font-weight: 400; }
+.btn-final {
+  display: inline-block; background: var(--clay-dk); color: var(--warm-wh);
+  padding: 1.1rem 3rem; border: none; cursor: pointer;
+  font-family: 'Nunito Sans', sans-serif; font-size: 0.75rem;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  text-decoration: none; font-weight: 600; border-radius: 2px;
+  transition: background 0.25s, transform 0.15s;
+}
+.btn-final:hover { background: var(--terra); transform: translateY(-2px); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--brown);
+  padding: 5rem 7rem 2rem;
+  color: rgba(245,240,232,0.7);
+}
+.footer-grid {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 4rem; padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(200,168,130,0.15); margin-bottom: 2rem;
+}
+.footer-logo {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1.3rem; font-weight: 400; letter-spacing: 0.28em;
+  color: var(--sand); text-decoration: none; display: block; margin-bottom: 1rem;
+}
+.footer-tagline { font-size: 0.82rem; color: rgba(245,240,232,0.5); font-weight: 300; line-height: 1.7; max-width: 220px; margin-bottom: 1.5rem; }
+.footer-col h4 { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--clay); margin-bottom: 1.2rem; font-weight: 600; }
+.footer-links { list-style: none; }
+.footer-links li { margin-bottom: 0.7rem; }
+.footer-links a { color: rgba(245,240,232,0.5); text-decoration: none; font-size: 0.8rem; font-weight: 300; transition: color 0.2s; }
+.footer-links a:hover { color: var(--sand); }
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 0.7rem; color: rgba(154,145,128,0.4);
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp 0.75s ease forwards; }
+.delay-1 { animation-delay: 0.12s; opacity: 0; }
+.delay-2 { animation-delay: 0.24s; opacity: 0; }
+.delay-3 { animation-delay: 0.36s; opacity: 0; }
+.delay-4 { animation-delay: 0.48s; opacity: 0; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1100px) {
+  nav { padding: 1.2rem 3rem; }
+  .hero-left { padding: 4rem 2.5rem 4rem 3rem; }
+  .product-section, .story { padding: 5rem 3rem; gap: 3rem; }
+  .offer-banner { padding: 4rem 3rem; }
+  .testimonials, .final-cta { padding: 5rem 3rem; }
+  footer { padding: 4rem 3rem 2rem; }
+}
+
+@media (max-width: 768px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+  .hero { grid-template-columns: 1fr; }
+  .hero-left { padding: 3rem 1.5rem; }
+  .hero-right { height: 380px; }
+  .hero-img-grid img:first-child { grid-column: 1 / 3; }
+  .product-section { grid-template-columns: 1fr; padding: 3.5rem 1.5rem; }
+  .product-info { position: static; }
+  .features { grid-template-columns: 1fr 1fr; }
+  .feat-item { border-bottom: 1px solid var(--border2); }
+  .story { grid-template-columns: 1fr; padding: 4rem 1.5rem; gap: 3rem; }
+  .story-img-wrap::after { display: none; }
+  .offer-banner { grid-template-columns: 1fr; padding: 3rem 1.5rem; text-align: center; }
+  .offer-banner-price { width: 100%; }
+  .testi-grid { grid-template-columns: 1fr; }
+  .testimonials, .final-cta { padding: 4rem 1.5rem; }
+  footer { padding: 3rem 1.5rem 2rem; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+  .strip { padding: 1rem 1.5rem; gap: 1.2rem; flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">✦</a>
+  <ul class="nav-links">
+    <li><a href="#producto">La Colección</a></li>
+    <li><a href="#historia">Nuestra Historia</a></li>
+    <li><a href="#testimonios">Reseñas</a></li>
+    <li><a href="#comprar" class="nav-cta">Comprar</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow fade-up">Edición Limitada · Talla Única</p>
+    <h1 class="hero-title fade-up delay-1">
+      Colección<br><em>Lujo x3</em>
+    </h1>
+    <p class="hero-sub fade-up delay-2">
+      Tres piezas. Una sola intención. Hecho para el hombre que elige bien — una sola vez.
+    </p>
+
+    <div class="hero-craft-note fade-up delay-2">
+      <span class="craft-dot"></span>
+      Lino Premium · Sandalia Artesanal · Envío Gratis
+    </div>
+
+    <div class="price-block fade-up delay-3">
+      <p class="price-compare">$89.000 CLP</p>
+      <div>
+        <span class="price-main"><small>$</small>59.000</span>
+        <span class="price-off">34% OFF</span>
+      </div>
+    </div>
+
+    <div class="hero-actions fade-up delay-4">
+      <a href="https://fj0qfp-s1.myshopify.com/cart/63607872029041:1" class="btn-primary">Ver el Conjunto →</a>
+      <a href="#producto" class="btn-ghost">Saber más</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-img-grid">
+      <img src="https://cdn.shopify.com/s/files/1/0831/0272/8427/files/20-WAC-W295_959_Pikolinos_CABRERA_NATA-APPLE_full.jpg?v=1779248935"
+        alt="Sandalia Artesanal — vista principal">
+      <img src="https://cdn.shopify.com/s/files/1/0831/0272/8427/files/10-WAC-W303_250_Pikolinos_ALTAFULLA_BRANDY_full_2113bcb1-a30c-47fa-a181-e8d1c27868e2.jpg?v=1779248922"
+        alt="Detalle cuero brandy">
+      <img src="https://cdn.shopify.com/s/files/1/0831/0272/8427/files/10-W0X-0954_250_Pikolinos_ALGAR_BRANDY_full.jpg?v=1779248921"
+        alt="Sandalia Algar Brandy">
+    </div>
+    <div class="hero-badge">
+      <div class="hero-badge-num">x3</div>
+      <div class="hero-badge-label">Piezas</div>
+    </div>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="strip">
+  <div class="strip-item">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    Lino 100% Premium
+  </div>
+  <span class="strip-sep">·</span>
+  <div class="strip-item">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    Envío Gratis Chile
+  </div>
+  <span class="strip-sep">·</span>
+  <div class="strip-item">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+    Entrega 3–7 días hábiles
+  </div>
+  <span class="strip-sep">·</span>
+  <div class="strip-item">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+    Edición Limitada
+  </div>
+</div>
+
+<!-- PRODUCT SECTION -->
+<section class="product-section" id="producto">
+  <div class="product-gallery">
+    <img class="product-main-img" id="mainImg"
+      src="https://cdn.shopify.com/s/files/1/0831/0272/8427/files/20-WAC-W295_959_Pikolinos_CABRERA_NATA-APPLE_full.jpg?v=1779248935"
+      alt="Colección Lujo x3">
+    <div class="product-thumbs">
+      <img src="https://cdn.shopify.com/s/files/1/0831/0272/8427/files/20-WAC-W295_959_Pikolinos_CABRERA_NATA-APPLE_full.jpg?v=1779248935"
+        alt="Cabrera Nata" class="active" onclick="setImg(this)">
+      <img src="https://cdn.shopify.com/s/files/1/0831/0272/8427/files/10-WAC-W303_250_Pikolinos_ALTAFULLA_BRANDY_full_2113bcb1-a30c-47fa-a181-e8d1c27868e2.jpg?v=1779248922"
+        alt="Altafulla Brandy" onclick="setImg(this)">
+      <img src="https://cdn.shopify.com/s/files/1/0831/0272/8427/files/10-W0X-0954_250_Pikolinos_ALGAR_BRANDY_full.jpg?v=1779248921"
+        alt="Algar Brandy" onclick="setImg(this)">
+      <img src="https://cdn.shopify.com/s/files/1/0831/0272/8427/files/20-W0X-0954CL_798_Pikolinos_ALGAR_CHAMPAGNE_full.jpg?v=1779248920"
+        alt="Algar Champagne" onclick="setImg(this)">
+    </div>
+  </div>
+
+  <div class="product-info">
+    <p class="product-cat">Colección 2025 · Edición Limitada</p>
+    <h2 class="product-name">Lujo <em>x3</em></h2>
+    <p class="product-subtitle">
+      Camisa de lino stone-washed, pantalón relajado y sandalia artesanal. Un solo conjunto — una sola decisión.
+    </p>
+
+    <div class="product-materials">
+      <span class="mat-tag">100% Lino</span>
+      <span class="mat-tag">Cuero sintético</span>
+      <span class="mat-tag">Stone-Washed</span>
+      <span class="mat-tag">Talla Única</span>
+    </div>
+
+    <div class="price-area">
+      <div class="price-row">
+        <span class="price-big"><small>$</small>59.000</span>
+        <span class="price-old">$89.000</span>
+      </div>
+      <span class="price-save">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+        Ahorras $30.000 CLP · 34% OFF
+      </span>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="pieces-grid">
+      <div class="piece-item">
+        <span class="piece-num">01</span>
+        <div class="piece-text">
+          <strong>Camisa de Lino Stone-Washed</strong>
+          <span>Manga larga · Talla Única (equiv. M/L) · 100% Lino Stone-Washed</span>
+        </div>
+      </div>
+      <div class="piece-item">
+        <span class="piece-num">02</span>
+        <div class="piece-text">
+          <strong>Pantalón de Lino Premium</strong>
+          <span>Corte relajado · Talla Única (cintura 32–38) · 100% Lino Premium</span>
+        </div>
+      </div>
+      <div class="piece-item">
+        <span class="piece-num">03</span>
+        <div class="piece-text">
+          <strong>Sandalia Heritage</strong>
+          <span>Talla Única (38–43) · Cuero sintético · Suela de goma</span>
+        </div>
+      </div>
+    </div>
+
+    <a href="https://fj0qfp-s1.myshopify.com/cart/63607872029041:1" class="btn-buy" id="comprar">
+      Comprar Ahora — $59.000 CLP
+    </a>
+
+    <div class="trust-row">
+      <div class="trust-item">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Pago Seguro
+      </div>
+      <div class="trust-item">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Envío Gratis
+      </div>
+      <div class="trust-item">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        Stock Limitado
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<div class="features">
+  <div class="feat-item">
+    <div class="feat-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    </div>
+    <p class="feat-name">Lino Premium</p>
+    <p class="feat-desc">Transpirable, suave al tacto y con una caída natural que mejora con el uso.</p>
+  </div>
+  <div class="feat-item">
+    <div class="feat-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </div>
+    <p class="feat-name">Envío Gratis</p>
+    <p class="feat-desc">Despacho sin costo a todo Chile. Llega en 3 a 7 días hábiles desde confirmación.</p>
+  </div>
+  <div class="feat-item">
+    <div class="feat-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+    </div>
+    <p class="feat-name">Compra Segura</p>
+    <p class="feat-desc">Pago 100% protegido. Tu información nunca se comparte con terceros.</p>
+  </div>
+  <div class="feat-item">
+    <div class="feat-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    </div>
+    <p class="feat-name">Edición Limitada</p>
+    <p class="feat-desc">Stock reducido. Una vez agotado, no habrá reposición a este precio.</p>
+  </div>
+</div>
+
+<!-- STORY -->
+<section class="story" id="historia">
+  <div class="story-img-wrap">
+    <img class="story-img"
+      src="https://cdn.shopify.com/s/files/1/0831/0272/8427/files/20-W0X-0954CL_798_Pikolinos_ALGAR_CHAMPAGNE_full.jpg?v=1779248920"
+      alt="Detalle artesanal — sandalia champagne">
+  </div>
+  <div class="story-content">
+    <p class="story-label">Nuestra historia</p>
+    <h2 class="story-title">Viste lo que<br><em>realmente eres.</em></h2>
+    <p class="story-body">
+      Creamos esta colección porque sentimos que algo faltaba en la moda actual — esa <strong>confianza discreta</strong>, ese estilo atemporal que no necesita gritar para ser notado.
+    </p>
+    <div class="story-quote">
+      <p>"El hombre elegante no sigue tendencias. Las observa de lejos y sonríe."</p>
+    </div>
+    <p class="story-body">
+      La <strong>Colección Lujo x3</strong> nació de esa convicción. Tres piezas pensadas para funcionar juntas — para el hombre que entiende que la verdadera elegancia <em>susurra</em>.
+    </p>
+    <a href="https://fj0qfp-s1.myshopify.com/cart/63607872029041:1" class="btn-primary" style="margin-top:2rem;">Obtener el Conjunto →</a>
+  </div>
+</section>
+
+<!-- OFFER BANNER -->
+<section class="offer-banner">
+  <div class="offer-banner-text">
+    <p class="label">Oferta por tiempo limitado</p>
+    <h2>El precio<br>más bajo <em>garantizado.</em></h2>
+    <p>Una vez agotado el stock, el precio vuelve a su valor original. No hay segunda oportunidad a este valor.</p>
+  </div>
+  <div class="offer-banner-price">
+    <div class="ob-price"><small>$</small>59.000</div>
+    <div class="ob-old">Antes $89.000 CLP</div>
+    <a href="https://fj0qfp-s1.myshopify.com/cart/63607872029041:1" class="btn-buy-light">Comprar Ahora</a>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonios">
+  <div class="section-header">
+    <p class="section-label">Lo que dicen</p>
+    <h2 class="section-title">Llevado &amp; <em>Amado</em></h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"Llegó en una caja increíble. La calidad de las telas superó todas mis expectativas. Lo usé el mismo día que llegó."</p>
+      <div class="testi-author"><strong>Matías R.</strong>Comprador verificado · Santiago</div>
+    </div>
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"Pedí el conjunto sin mucha expectativa y quedé completamente sorprendido. El lino es suave, fresco y la sandalia es increíblemente cómoda."</p>
+      <div class="testi-author"><strong>Sebastián L.</strong>Comprador verificado · Viña del Mar</div>
+    </div>
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"El precio de lanzamiento es un regalo. Llevo 3 semanas usando el conjunto y ya me preguntaron dónde lo compré más de 10 veces."</p>
+      <div class="testi-author"><strong>Felipe A.</strong>Comprador verificado · Concepción</div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <p class="eyebrow">Últimas unidades disponibles</p>
+  <h2>Tu estilo.<br><em>Tu momento.</em></h2>
+  <p>El stock es limitado y no habrá reposición a este precio. Asegura el tuyo antes de que se agote.</p>
+  <div class="final-price">
+    <s>$89.000</s> $59.000 CLP
+  </div>
+  <a href="https://fj0qfp-s1.myshopify.com/cart/63607872029041:1" class="btn-final">
+    Comprar Ahora — Antes que se Agote
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      
+      <p class="footer-tagline">Elegancia discreta para el hombre que no necesita explicaciones.</p>
+      <p style="font-size:0.74rem;color:rgba(245,240,232,0.4);font-weight:300;line-height:1.7;margin-top:1rem;">
+        Lystige Comércio Varejista Ltda.<br>
+        CNPJ: 49.142.229/0001-50<br>
+        R. Eng. Alpheu José Ribas Sampaio, 326, Sala 217<br>
+        Bauru – SP, Brasil · CEP 17012-631
+      </p>
+      <p style="font-size:0.74rem;color:rgba(245,240,232,0.4);font-weight:300;margin-top:0.6rem;">
+        ✉ <a href="mailto:lystige1@gmail.com" style="color:rgba(245,240,232,0.4);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--clay)'" onmouseout="this.style.color='rgba(245,240,232,0.4)'">lystige1@gmail.com</a>
+      </p>
+    </div>
+    <div class="footer-col">
+      <h4>Tienda</h4>
+      <ul class="footer-links">
+        <li><a href="#producto">Colección Lujo x3</a></li>
+        <li><a href="#comprar">Comprar</a></li>
+        <li><a href="#testimonios">Reseñas</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Ayuda</h4>
+      <ul class="footer-links">
+        <li><a href="#">Guía de Tallas</a></li>
+        <li><a href="#">Envíos</a></li>
+        <li><a href="#">Devoluciones</a></li>
+        <li><a href="mailto:lystige1@gmail.com">Contacto</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul class="footer-links">
+        <li><a href="#">Privacidad</a></li>
+        <li><a href="#">Términos</a></li>
+        <li><a href="#">Reembolsos</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Lystige Comércio Varejista Ltda. Todos los derechos reservados.</span>
+    <span>Viste lo que eres.</span>
+  </div>
+</footer>
+
+<script>
+  // Thumbnail gallery
+  function setImg(el) {
+    document.getElementById('mainImg').src = el.src;
+    document.querySelectorAll('.product-thumbs img').forEach(i => i.classList.remove('active'));
+    el.classList.add('active');
+  }
+
+  // Nav shrink on scroll
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 60) {
+      nav.style.padding = window.innerWidth > 768 ? '0.8rem 5rem' : '0.7rem 1.5rem';
+    } else {
+      nav.style.padding = window.innerWidth > 768 ? '1.4rem 5rem' : '1rem 1.5rem';
+    }
+  });
+
+  // Scroll-triggered fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        e.target.style.animation = `fadeUp 0.65s ease ${i * 0.08}s forwards`;
+        e.target.style.opacity = '0';
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.testi-card, .feat-item, .piece-item, .mat-tag').forEach(el => {
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
